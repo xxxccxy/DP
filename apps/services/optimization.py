@@ -139,7 +139,6 @@ def optimize(optimization: Optimization):
                             
                         # 计算下一状态（考虑温度边界）
                         T_next = heat_storage.state_transition(T_current, P2, P3, hp_2, hp_3)
-                        T_next = np.clip(T_next, heat_storage.T_min, heat_storage.T_max)
                         
                         # 找到最近的状态索引
                         s_next = np.argmin(np.abs(states - T_next))
